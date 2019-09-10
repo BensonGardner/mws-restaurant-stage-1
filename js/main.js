@@ -1,4 +1,4 @@
-navigator.serviceWorker.register('sw.js');
+// Commenting out until the end because it makes updating weird navigator.serviceWorker.register('sw.js');
 
 let restaurants,
   neighborhoods,
@@ -147,8 +147,8 @@ createRestaurantHTML = (restaurant) => {
   image.setAttribute('alt', image.altText);
   li.append(image);
 
-  const name = document.createElement('h1');
-  name.innerHTML = restaurant.name;
+  const name = document.createElement('h3');
+  name.innerHTML = `<a href=" ${DBHelper.urlForRestaurant(restaurant)}">${restaurant.name}</a>`;
   li.append(name);
 
   const neighborhood = document.createElement('p');
