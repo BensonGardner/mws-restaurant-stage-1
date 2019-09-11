@@ -152,7 +152,7 @@ createRestaurantHTML = (restaurant) => {
   li.append(info);
   
   const name = document.createElement('h3');
-  name.innerHTML = `<a href=" ${DBHelper.urlForRestaurant(restaurant)}">${restaurant.name}</a>`;
+  name.innerHTML = `<tabindex="0" a href=" ${DBHelper.urlForRestaurant(restaurant)}">${restaurant.name}</a>`;
   info.append(name);
 
   const neighborhood = document.createElement('p');
