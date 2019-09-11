@@ -54,12 +54,14 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 /* ====================== Navigation ====================== */
 nav {
   width: 100vw;
-  height: 80px;
+  height: auto;
   background-color: #252831;
   text-align:center;
+  display: flex;
+  justify-content: center;
 }
 nav h1 {
-  margin: auto;
+  margin: 10px 0;
 }
 nav h1 a {
   color: #fff;
@@ -178,7 +180,7 @@ nav h1 a {
   padding: 0; 
   text-align: left;
   width: 220px;
-  flex: auto;
+  flex: 0 0 auto;
   align-self: center;
 }
 #restaurants-list .restaurant-img {
@@ -285,7 +287,7 @@ nav h1 a {
 }
 #reviews-list li {
   background-color: #fff;
-    border: 2px solid #fefefe;
+  border: 2px solid #fefefe;
   display: block;
   list-style-type: none;
   margin: 0 0 30px;
