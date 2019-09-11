@@ -12,6 +12,7 @@ var markers = []
 document.addEventListener('DOMContentLoaded', (event) => {
   fetchNeighborhoods();
   fetchCuisines();
+  document.querySelector('#neighborhoods-select').focus();
 });
 
 /**
@@ -152,7 +153,8 @@ createRestaurantHTML = (restaurant) => {
   li.append(info);
   
   const name = document.createElement('h3');
-  name.innerHTML = `<tabindex="0" a href=" ${DBHelper.urlForRestaurant(restaurant)}">${restaurant.name}</a>`;
+  name.innerHTML = `<a href=" ${DBHelper.urlForRestaurant(restaurant)}">${restaurant.name}</a>`;
+  name.tabIndex = '0';
   info.append(name);
 
   const neighborhood = document.createElement('p');
