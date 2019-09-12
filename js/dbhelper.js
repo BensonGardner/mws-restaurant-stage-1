@@ -147,10 +147,12 @@ class DBHelper {
   }
 
   /**
-   * Restaurant image URL.
+   * Restaurant image URL. Grab the medium image as the default,
+     as it's the largest that might be needed when the home page 
+     loads for the first time.
    */
   static imageUrlForRestaurant(restaurant) {    
-    return (`/img/${restaurant.photograph}`);
+    return (`/img/534/${restaurant.photograph}`);
   }
 
   /**
