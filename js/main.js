@@ -2,9 +2,9 @@
 
 let restaurants,
   neighborhoods,
-  cuisines;
-var map,
-var markers = [];
+  cuisines
+var map
+var markers = []
 
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
@@ -143,15 +143,16 @@ createRestaurantHTML = (restaurant) => {
 
   const image = document.createElement('img');
   image.className = 'restaurant-img';
-    // Create array of 3 images per restaurant
-    // Can we put better alt text here too?
-  image.srcset = `[
-    "img/220/${restaurant.photograph}" 200w, 
-    "img/534/${restaurant.photograph}" 534w, 
-    "img/800/${restaurant.photograph}" 800w]`;  
-  image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  image.altText = 'Interior picture from ' + restaurant.name;
-  image.setAttribute('alt', image.altText);
+  let size,
+    vwWidth = document.documentElement.clientWidth;
+  if (vwWidth < 245 || 545 < vwWidth) {
+      size = 220;
+  } else if (222 < vwWidth < 546) {
+    size = 534;
+  };    
+  image.src = DBHelper.imageUrlForRestaurant(restaurant, size);
+  image.srcset = `img/220/${restaurant.photograph} 220w, img/534/${restaurant.photograph} 534w, img/800/${restaurant.photograph} 800w`;
+  image.setAttribute('alt', restaurant.imageAlt);
   li.append(image);
  
   const info = document.createElement('section');

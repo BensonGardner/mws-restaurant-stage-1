@@ -151,8 +151,9 @@ class DBHelper {
      as it's the largest that might be needed when the home page 
      loads for the first time.
    */
-  static imageUrlForRestaurant(restaurant) {    
-    return (`/img/534/${restaurant.photograph}`);
+  static imageUrlForRestaurant(restaurant, size) { 
+    console.log('getting the url');
+    return (`/img/${size}/${restaurant.photograph}`);
   }
 
   /**
