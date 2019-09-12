@@ -1,5 +1,3 @@
-// Commenting out until the end because it makes updating weird navigator.serviceWorker.register('sw.js');
-
 let restaurants,
   neighborhoods,
   cuisines
