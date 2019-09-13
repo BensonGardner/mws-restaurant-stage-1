@@ -16,11 +16,13 @@ self.addEventListener('install', function(event) {
   );
 });
 
-self.addEventListener('fetch', function(event) {
-  console.log(caches);
-  event.respondWith(
-      caches.match(event.request).then(function(response) {
-        return response || fetch(event.request);
-      })
-    );
+self.addEventListener('activate').then(function() {
+    self.addEventListener('fetch', function(event) {
+      console.log(caches);
+      event.respondWith(
+          caches.match(event.request).then(function(response) {
+            return response || fetch(event.request);
+          })
+        );
+    });
 });

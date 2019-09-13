@@ -150,7 +150,13 @@ createRestaurantHTML = (restaurant) => {
   };    
   image.src = DBHelper.imageUrlForRestaurant(restaurant, size);
   image.srcset = `img/220/${restaurant.photograph} 220w, img/534/${restaurant.photograph} 534w, img/800/${restaurant.photograph} 800w`;
-  image.setAttribute('alt', restaurant.imageAlt);
+    
+  /* Instruct browser to use the more descriptive text which I have entered 
+     into the restaurants.json file if possible, otherwise if there is none 
+     present for any reason, fall back on a generic option.
+  */
+  image.backupAlt = 'Image from ' + restaurant.name;
+  image.setAttribute('alt', restaurant.imageAlt || image.backupAlt);
   li.append(image);
  
   const info = document.createElement('section');
